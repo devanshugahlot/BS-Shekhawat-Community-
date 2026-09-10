@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #060908;
+    color: #e6ede9;
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Custom subtle dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #070b09;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #192720;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00e676;
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Glowing text and card utilities */
+.glow-text {
+  text-shadow: 0 0 16px rgba(0, 230, 118, 0.6);
+}
+
+.glow-box {
+  box-shadow: 0 0 30px -5px rgba(0, 230, 118, 0.25);
+}
+
+.card-gradient {
+  background: linear-gradient(180deg, rgba(17, 24, 20, 0.85) 0%, rgba(10, 15, 12, 0.95) 100%);
+  border: 1px solid rgba(0, 230, 118, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.subtle-grid {
+  background-image: radial-gradient(rgba(0, 230, 118, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.radial-glow-top {
+  background: radial-gradient(circle at 50% 0%, rgba(0, 230, 118, 0.12) 0%, transparent 60%);
+}
+
+.radial-glow-center {
+  background: radial-gradient(circle at 50% 50%, rgba(0, 230, 118, 0.07) 0%, transparent 70%);
+}
