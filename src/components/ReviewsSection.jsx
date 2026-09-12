@@ -3,9 +3,9 @@ import { Star, ArrowRight, CheckCircle, ChevronLeft, ChevronRight } from 'lucide
 
 export default function ReviewsSection({ onEnroll }) {
   const stats = [
-    { value: '10K+', label: 'Students' },
+    { value: '450+', label: 'Students' },
     { value: '4.9/5', label: 'Average Rating' },
-    { value: '500+', label: 'Hours of Live Classes' },
+    { value: '250', label: 'Hours of Live Classes' },
     { value: '90%', label: 'Practical Approach' },
   ];
 
@@ -74,10 +74,6 @@ export default function ReviewsSection({ onEnroll }) {
             <p className="text-xs sm:text-sm text-gray-400">
               Real feedback from traders learning and growing with this program.
             </p>
-          </div>
-
-          <div className="block sm:hidden text-[10px] font-mono text-brand-green">
-            Swipe reviews →
           </div>
         </div>
 

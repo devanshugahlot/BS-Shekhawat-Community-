@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { 
-  Play, 
   ArrowRight, 
   BarChart3, 
   Layers, 
@@ -81,8 +80,8 @@ export default function HeroSection({ onWatchVideo, onEnroll }) {
   ];
 
   const stats = [
-    { value: '10K+', label: 'Students Learning' },
-    { value: '500+', label: 'Hours of Live Classes' },
+    { value: '450+', label: 'Students Learning' },
+    { value: '250', label: 'Hours of Live Classes' },
     { value: '4.9/5', label: 'Student Rating' },
     { value: '90%', label: 'Practical Approach' },
   ];
@@ -186,21 +185,10 @@ export default function HeroSection({ onWatchVideo, onEnroll }) {
                   Join Live Classes
                   <ArrowRight className="w-4 h-4" />
                 </button>
-
-                <button
-                  onClick={() => onWatchVideo('intro')}
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-[#0d1410] active:bg-[#131f18] text-white font-semibold text-sm border border-brand-border"
-                >
-                  <Play className="w-3.5 h-3.5 fill-brand-green text-brand-green" />
-                  Watch Introduction
-                </button>
               </div>
 
               {/* Mobile Swipeable Feature Chips Slider */}
               <div className="w-full pt-3 border-t border-brand-border/60">
-                <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400 mb-1.5 block sm:hidden">
-                  Swipe Features →
-                </div>
                 <div className="flex overflow-x-auto no-scrollbar gap-2 py-1 w-full">
                   {floatingBadges.map((badge, idx) => {
                     const Icon = badge.icon;
@@ -303,9 +291,6 @@ export default function HeroSection({ onWatchVideo, onEnroll }) {
                 Complete skill set to become a confident trader
               </p>
             </div>
-            <div className="block sm:hidden text-[10px] font-mono text-brand-green">
-              Swipe cards →
-            </div>
           </div>
 
           {/* Desktop Grid / Mobile Horizontal Swipe Slider */}
@@ -330,7 +315,6 @@ export default function HeroSection({ onWatchVideo, onEnroll }) {
                   </div>
                   <div className="mt-3 pt-2.5 border-t border-brand-border/40 flex items-center justify-between text-[11px] font-mono text-gray-500">
                     <span>Module 0{idx + 1}</span>
-                    <span className="text-brand-green font-semibold">Verified</span>
                   </div>
                 </div>
               );
@@ -338,36 +322,7 @@ export default function HeroSection({ onWatchVideo, onEnroll }) {
           </div>
         </div>
 
-        {/* 4. VIDEO QUOTE BANNER: "Better Traders, Better Life" */}
-        <div className="mt-12 sm:mt-16">
-          <div 
-            onClick={() => onWatchVideo('trailer')}
-            className="relative rounded-2xl overflow-hidden border border-brand-green/40 bg-[#070b09] cursor-pointer group shadow-lg"
-          >
-            <div className="h-44 sm:h-64 md:h-80 relative flex items-center justify-center">
-              <img 
-                src="/assets/mentor.jpg" 
-                alt="Mentor video preview" 
-                className="absolute inset-0 w-full h-full object-cover object-[center_35%] filter brightness-[0.45] contrast-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-black/85" />
-
-              <div className="relative z-10 text-center px-3 flex flex-col items-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-brand-green flex items-center justify-center shadow-[0_0_20px_rgba(0,230,118,0.7)] mb-3">
-                  <Play className="w-5 h-5 sm:w-7 sm:h-7 fill-black text-black ml-0.5" />
-                </div>
-                <h3 className="font-script text-2xl sm:text-4xl text-white font-bold tracking-wide">
-                  "Better Traders, Better Life"
-                </h3>
-                <p className="text-xs sm:text-sm font-mono uppercase tracking-widest text-brand-green mt-1 font-bold">
-                  — BS SHEKHAWAT
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 5. 4 STATS ROW BAR (Clean 2x2 grid on mobile) */}
+        {/* 4. 4 STATS ROW BAR (Clean 2x2 grid on mobile) */}
         <div className="mt-8 sm:mt-10 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3">
           {stats.map((stat, idx) => (
             <div

@@ -1,6 +1,5 @@
 import React from 'react';
 import { 
-  Play, 
   ArrowRight, 
   Check, 
   Tv, 
@@ -41,14 +40,6 @@ export default function CourseSection({ onWatchVideo, onEnroll }) {
     { title: 'Community Access', icon: Users, desc: 'Private Discord / Telegram network of pro traders' },
   ];
 
-  const previewPoints = [
-    'Live market analysis',
-    'Step-by-step explanation',
-    'Real trade examples',
-    'Interactive Q&A',
-    'Practical application',
-  ];
-
   return (
     <section id="course" className="py-12 sm:py-16 border-t border-brand-border/60 relative bg-[#060908] radial-glow-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,13 +72,6 @@ export default function CourseSection({ onWatchVideo, onEnroll }) {
               >
                 Join The Course
                 <ArrowRight className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => onWatchVideo('trailer')}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#101813] text-white font-semibold text-xs sm:text-sm border border-brand-border"
-              >
-                <Play className="w-3.5 h-3.5 fill-brand-green text-brand-green" />
-                Watch Trailer
               </button>
             </div>
           </div>
@@ -163,31 +147,20 @@ export default function CourseSection({ onWatchVideo, onEnroll }) {
           })}
         </div>
 
-        {/* Two Columns: Who Is This For? VS Quote Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-stretch mb-8 sm:mb-12">
-          <div className="lg:col-span-7 p-5 sm:p-7 rounded-2xl bg-[#0a100d] border border-brand-border">
-            <h3 className="text-lg sm:text-xl font-bold text-white mb-3">
-              Who Is This Course For?
-            </h3>
-            <div className="space-y-2.5">
-              {whoIsThisFor.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-2.5">
-                  <div className="w-4 h-4 rounded-full bg-brand-green/15 border border-brand-green flex items-center justify-center shrink-0 mt-0.5">
-                    <Check className="w-2.5 h-2.5 text-brand-green stroke-[3]" />
-                  </div>
-                  <span className="text-xs sm:text-sm text-gray-200">{item}</span>
+        {/* Who Is This Course For? */}
+        <div className="p-5 sm:p-7 rounded-2xl bg-[#0a100d] border border-brand-border mb-8 sm:mb-12">
+          <h3 className="text-lg sm:text-xl font-bold text-white mb-4">
+            Who Is This Course For?
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {whoIsThisFor.map((item, idx) => (
+              <div key={idx} className="flex items-start gap-2.5">
+                <div className="w-4 h-4 rounded-full bg-brand-green/15 border border-brand-green flex items-center justify-center shrink-0 mt-0.5">
+                  <Check className="w-2.5 h-2.5 text-brand-green stroke-[3]" />
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="lg:col-span-5 p-5 sm:p-7 rounded-2xl bg-[#0b120f] border border-brand-green/30 flex flex-col justify-center text-center sm:text-left">
-            <span className="font-script text-2xl sm:text-3xl text-brand-green font-bold leading-snug mb-2">
-              "Knowledge compounds faster than money."
-            </span>
-            <span className="text-[10px] sm:text-xs uppercase font-mono tracking-widest text-gray-300 font-bold">
-              — BS SHEKHAWAT
-            </span>
+                <span className="text-xs sm:text-sm text-gray-200">{item}</span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -197,9 +170,6 @@ export default function CourseSection({ onWatchVideo, onEnroll }) {
             <h3 className="text-lg sm:text-2xl font-black text-white tracking-tight">
               Course Features
             </h3>
-            <div className="block sm:hidden text-[10px] font-mono text-brand-green">
-              Swipe features →
-            </div>
           </div>
 
           <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3 overflow-x-auto sm:overflow-visible no-scrollbar snap-x snap-mandatory pb-2">
@@ -224,45 +194,6 @@ export default function CourseSection({ onWatchVideo, onEnroll }) {
                 </div>
               );
             })}
-          </div>
-        </div>
-
-        {/* Course Preview */}
-        <div className="p-5 sm:p-7 rounded-2xl bg-[#090f0c] border border-brand-border/80">
-          <h3 className="text-lg sm:text-xl font-black text-white tracking-tight mb-1">
-            Course Preview
-          </h3>
-          <p className="text-xs text-gray-400 mb-4">
-            See how the classes are conducted and get a feel of the learning experience.
-          </p>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
-            <div 
-              onClick={() => onWatchVideo('preview')}
-              className="lg:col-span-7 aspect-video rounded-xl overflow-hidden border border-brand-green/40 bg-black relative cursor-pointer"
-            >
-              <img 
-                src="/assets/mentor.jpg" 
-                alt="Orderflow preview" 
-                className="w-full h-full object-cover filter brightness-60 contrast-110"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-12 h-12 rounded-full bg-brand-green flex items-center justify-center shadow-lg">
-                  <Play className="w-5 h-5 fill-black text-black ml-0.5" />
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 space-y-2">
-              {previewPoints.map((point, idx) => (
-                <div key={idx} className="flex items-center gap-2.5 p-2.5 rounded-lg bg-[#0d1511] border border-brand-border/60">
-                  <div className="w-5 h-5 rounded bg-brand-green/10 border border-brand-green/30 flex items-center justify-center shrink-0">
-                    <Check className="w-3 h-3 text-brand-green" />
-                  </div>
-                  <span className="text-xs font-semibold text-gray-200">{point}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
 

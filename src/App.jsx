@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import MarketTicker from './components/MarketTicker';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import CourseSection from './components/CourseSection';
@@ -10,14 +9,12 @@ import PricingSection from './components/PricingSection';
 import Footer from './components/Footer';
 import VideoModal from './components/VideoModal';
 import EnrollmentModal from './components/EnrollmentModal';
-import SearchModal from './components/SearchModal';
 import MobileFloatingBar from './components/MobileFloatingBar';
 
 export default function App() {
   const [videoModalOpen, setVideoModalOpen] = useState(false);
   const [videoType, setVideoType] = useState('intro');
   const [enrollModalOpen, setEnrollModalOpen] = useState(false);
-  const [searchModalOpen, setSearchModalOpen] = useState(false);
 
   const handleWatchVideo = (type = 'intro') => {
     setVideoType(type);
@@ -30,13 +27,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#060908] text-[#e6ede9] flex flex-col font-sans selection:bg-brand-green selection:text-black pb-16 md:pb-0">
-      {/* 1. Real-Time Financial Market Ticker */}
-      <MarketTicker />
-
-      {/* 2. Main Navigation Bar */}
+      {/* 1. Main Navigation Bar */}
       <Navbar 
         onOpenCheckout={handleOpenEnroll} 
-        onOpenSearch={() => setSearchModalOpen(true)} 
       />
 
       {/* 3. Main Content Sections */}
@@ -90,11 +83,6 @@ export default function App() {
       <EnrollmentModal
         isOpen={enrollModalOpen}
         onClose={() => setEnrollModalOpen(false)}
-      />
-
-      <SearchModal
-        isOpen={searchModalOpen}
-        onClose={() => setSearchModalOpen(false)}
       />
     </div>
   );

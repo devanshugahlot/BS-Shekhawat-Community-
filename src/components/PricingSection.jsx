@@ -67,7 +67,7 @@ export default function PricingSection({ onEnroll }) {
             
             {/* Top Popular Pill */}
             <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-brand-green text-black font-mono font-black text-[11px] uppercase tracking-wider shadow-[0_0_15px_rgba(0,230,118,0.6)]">
-              MOST POPULAR
+              RESERVATIONS OPEN
             </div>
 
             <div className="rounded-[22px] bg-[#09100c] p-6 sm:p-9 flex flex-col justify-between">
@@ -81,21 +81,16 @@ export default function PricingSection({ onEnroll }) {
                     Complete Structured Learning Program
                   </p>
 
-                  {/* Pricing / Admission Tag */}
-                  <div className="mt-4 flex items-center justify-center gap-3">
-                    <span className="text-3xl sm:text-5xl font-black text-white font-mono tracking-tight">
-                      ₹ 14,999
+                  {/* Slot Booking Tag */}
+                  <div className="mt-5 flex flex-col items-center justify-center gap-1">
+                    <span className="text-2xl sm:text-3xl font-black text-brand-green font-mono tracking-wide uppercase">
+                      BOOK YOUR SLOT
                     </span>
-                    <div className="flex flex-col items-start">
-                      <span className="text-base text-gray-500 line-through font-mono">
-                        ₹ 24,999
-                      </span>
-                      <span className="px-2 py-0.5 rounded bg-brand-green/20 text-brand-green text-[10px] font-bold font-mono border border-brand-green/30">
-                        40% OFF
-                      </span>
-                    </div>
+                    <span className="text-xs text-gray-300 font-mono">
+                      Exclusive Cohort Access & Mentorship
+                    </span>
                   </div>
-                  <div className="text-[11px] text-gray-300 mt-2 font-mono flex items-center justify-center gap-1.5">
+                  <div className="text-[11px] text-gray-400 mt-2 font-mono flex items-center justify-center gap-1.5">
                     <Calendar className="w-3.5 h-3.5 text-brand-green" />
                     <span>Next Live Batch Starting This Weekend • Limited Seats</span>
                   </div>
@@ -122,11 +117,11 @@ export default function PricingSection({ onEnroll }) {
                   onClick={onEnroll}
                   className="w-full py-3.5 sm:py-4 rounded-xl bg-brand-green hover:bg-brand-neon text-black font-extrabold text-sm sm:text-base uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(0,230,118,0.45)] hover:shadow-[0_0_35px_rgba(0,230,118,0.65)] transition-all transform hover:scale-[1.01] active:scale-95"
                 >
-                  Enroll Now — Fill Registration Form
+                  Book Your Slot — Fill Registration Form
                   <ArrowRight className="w-4 h-4" />
                 </button>
                 <p className="text-center text-[11px] text-gray-400 font-mono mt-2.5 flex items-center justify-center gap-1.5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-brand-green" /> Immediate Seat Reservation • Free Onboarding Call
+                  <CheckCircle2 className="w-3.5 h-3.5 text-brand-green" /> Immediate Seat Reservation • Direct WhatsApp Coordinator Connect
                 </p>
               </div>
             </div>

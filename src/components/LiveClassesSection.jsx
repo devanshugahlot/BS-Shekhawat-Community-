@@ -1,99 +1,35 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { 
-  Tv, 
-  Activity, 
-  MessageSquare, 
-  Crosshair, 
-  HelpCircle, 
   Users, 
-  Hand, 
-  FileText, 
-  Maximize2, 
-  Send, 
+  UserCheck, 
+  Check, 
   Calendar, 
-  Bell, 
   ArrowRight,
-  Volume2
+  Sparkles
 } from 'lucide-react';
 
 export default function LiveClassesSection({ onEnroll }) {
-  const [messages, setMessages] = useState([
-    { id: 1, user: 'Rohit K.', role: 'Pro Member', text: 'Very clear explanation! 🔥', time: '09:34' },
-    { id: 2, user: 'Sneha P.', role: 'Student', text: 'Can you explain this 300 lot imbalance at the high?', time: '09:35' },
-    { id: 3, user: 'Aman P.', role: 'Options Trader', text: 'Great session sir! Delta just flipped positive.', time: '09:36' },
-    { id: 4, user: 'Vikram S.', role: 'Intraday Trader', text: 'Watching the absorption on DOM ladder now.', time: '09:37' },
-    { id: 5, user: 'Pooja M.', role: 'Student', text: 'This is next level learning ❤️', time: '09:38' },
-  ]);
-  const [inputMsg, setInputMsg] = useState('');
-  const [viewerCount, setViewerCount] = useState(245);
-  const [handRaised, setHandRaised] = useState(false);
-  const [notesActive, setNotesActive] = useState(false);
-  const [noteContent, setNoteContent] = useState('Look for absorption at POC before taking breakout entries...');
-  
-  // CONTAINER REF (Strictly scroll within container, NEVER scroll entire page!)
-  const chatContainerRef = useRef(null);
+  const groupIncludes = [
+    'Live Interactive Classes',
+    'Complete Order Flow Curriculum',
+    'Live Market Analysis',
+    'Practical Chart Examples',
+    'Doubt & Q&A Sessions',
+    'Trading Psychology & Risk Management',
+    '5X Market System',
+    'Prop Firm → Get Funded Roadmap',
+  ];
 
-  useEffect(() => {
-    if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
-    }
-  }, [messages]);
-
-  useEffect(() => {
-    const viewerInterval = setInterval(() => {
-      setViewerCount(prev => prev + (Math.floor(Math.random() * 5) - 2));
-    }, 5000);
-
-    const autoChatInterval = setInterval(() => {
-      const extraMessages = [
-        { user: 'Harish R.', text: 'POC shifted to 25,410!', role: 'Student' },
-        { user: 'Deepak V.', text: 'Huge buyer aggression at value area low! 🚀', role: 'Trader' },
-        { user: 'Tarun M.', text: 'Understood the stacked imbalance concept clearly now.', role: 'Student' },
-      ];
-      const randomMsg = extraMessages[Math.floor(Math.random() * extraMessages.length)];
-      const now = new Date();
-      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-      
-      setMessages(prev => [
-        ...prev.slice(-15),
-        { id: Date.now(), user: randomMsg.user, role: randomMsg.role, text: randomMsg.text, time: timeStr }
-      ]);
-    }, 12000);
-
-    return () => {
-      clearInterval(viewerInterval);
-      clearInterval(autoChatInterval);
-    };
-  }, []);
-
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    if (!inputMsg.trim()) return;
-
-    const now = new Date();
-    const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-
-    setMessages(prev => [
-      ...prev,
-      {
-        id: Date.now(),
-        user: 'You (Visitor)',
-        role: 'Live Attendee',
-        text: inputMsg.trim(),
-        time: timeStr,
-        isSelf: true
-      }
-    ]);
-    setInputMsg('');
-  };
-
-  const featurePills = [
-    { title: 'Live Market Analysis', icon: Activity },
-    { title: 'Real-time Orderflow', icon: Tv },
-    { title: 'Live Q&A', icon: MessageSquare },
-    { title: 'Trade Breakdowns', icon: Crosshair },
-    { title: 'Doubt Clearing', icon: HelpCircle },
-    { title: 'Community Discussion', icon: Users },
+  const mentorshipIncludes = [
+    '1-on-1 Private Sessions',
+    'Personalized Trading Analysis',
+    'Trade Review & Mistake Analysis',
+    'Strategy Building',
+    'Live Market Execution',
+    'Risk Management',
+    'Trading Psychology',
+    'Personalized Trading Plan',
+    'Prop Firm Guidance',
   ];
 
   const upcomingClasses = [
@@ -118,243 +54,213 @@ export default function LiveClassesSection({ onEnroll }) {
   ];
 
   return (
-    <section id="live" className="py-12 sm:py-16 border-t border-brand-border/60 relative bg-[#060908]">
+    <section id="live" className="py-16 sm:py-20 border-t border-brand-border/60 relative bg-[#060908]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs font-mono text-gray-400 mb-4">
           <a href="#home" className="hover:text-brand-green transition-colors">Home</a>
           <span>&gt;</span>
-          <span className="text-brand-green font-semibold">Live Classes</span>
+          <span className="text-brand-green font-semibold">Live Experience</span>
         </div>
 
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight mb-2">
-            Learn <span className="text-brand-green">Orderflow</span> Live
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-green/10 border border-brand-green/30 text-brand-green text-[11px] font-mono font-bold uppercase mb-3">
+            <Sparkles className="w-3.5 h-3.5" /> LEARNING PATHWAYS
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-3 uppercase">
+            CHOOSE YOUR <span className="text-brand-green">LEARNING EXPERIENCE</span>
           </h2>
-          <p className="text-xs sm:text-sm text-gray-300">
-            Don't just watch recorded videos. Learn, ask questions and see Orderflow concepts applied in real-time market conditions.
+          <p className="text-sm sm:text-base text-gray-300">
+            Select the structured format tailored to your trading goals, pace, and execution discipline.
           </p>
         </div>
 
-        {/* Feature Icons Row: Horizontal swipe on mobile, grid on desktop */}
-        <div className="flex sm:grid sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-2.5 overflow-x-auto no-scrollbar pb-2 mb-8">
-          {featurePills.map((pill, idx) => {
-            const Icon = pill.icon;
-            return (
-              <div 
-                key={idx}
-                className="p-2.5 sm:p-3 rounded-xl bg-[#0a110e] border border-brand-border flex items-center justify-center gap-2 text-xs text-gray-200 shrink-0 whitespace-nowrap"
+        {/* TWO TRACKS: GROUP CLASSES VS PERSONAL MENTORSHIP */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-16">
+          
+          {/* TRACK 01: GROUP CLASSES */}
+          <div className="rounded-3xl bg-[#09100d] border border-brand-border/80 hover:border-brand-green/40 transition-all p-6 sm:p-8 flex flex-col justify-between shadow-lg relative">
+            <div>
+              {/* Badge & Number */}
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-mono font-black text-brand-green uppercase tracking-widest px-3 py-1 rounded-full bg-brand-green/10 border border-brand-green/30">
+                  TRACK 01
+                </span>
+                <span className="text-xs font-mono text-gray-400 font-semibold">
+                  Cohort Learning
+                </span>
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-1">
+                01 — GROUP CLASSES
+              </h3>
+              
+              <div className="text-xs sm:text-sm font-mono font-bold text-brand-green uppercase tracking-wider mb-4">
+                LEARN • EXECUTE • GROW TOGETHER
+              </div>
+
+              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-6">
+                A structured live learning experience where you learn the complete Order Flow system step-by-step with a focused group of traders.
+              </p>
+
+              {/* Includes List */}
+              <div className="pt-4 border-t border-brand-border/60 mb-6">
+                <div className="text-xs font-mono font-bold text-white uppercase tracking-wider mb-3">
+                  Includes:
+                </div>
+                <div className="space-y-2.5">
+                  {groupIncludes.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-brand-green/15 border border-brand-green flex items-center justify-center shrink-0 mt-0.5">
+                        <Check className="w-2.5 h-2.5 text-brand-green stroke-[3]" />
+                      </div>
+                      <span className="text-xs sm:text-sm text-gray-200">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Best For Box */}
+              <div className="p-3.5 rounded-xl bg-[#0d1712] border border-brand-border/60 text-xs text-gray-300 leading-relaxed mb-6">
+                <strong className="text-brand-green font-mono uppercase block text-[11px] mb-1">BEST FOR:</strong>
+                Traders who want a structured learning environment and live interaction with other traders.
+              </div>
+            </div>
+
+            {/* Action Button */}
+            <div>
+              <button
+                onClick={onEnroll}
+                className="w-full py-3.5 rounded-xl bg-brand-green hover:bg-brand-neon text-black font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,230,118,0.35)] transition-all"
               >
-                <Icon className="w-3.5 h-3.5 text-brand-green shrink-0" />
-                <span className="font-semibold">{pill.title}</span>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* INTERACTIVE LIVE CLASSROOM TERMINAL */}
-        <div className="rounded-2xl border border-brand-green/30 bg-[#090e0b] overflow-hidden shadow-lg mb-10">
-          {/* Header */}
-          <div className="flex items-center justify-between px-3.5 py-2 bg-[#060a08] border-b border-brand-border/80">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500"></span>
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
-              <span className="w-2.5 h-2.5 rounded-full bg-green-500"></span>
-              <span className="text-xs font-mono text-gray-300 font-semibold ml-1">
-                Live Broadcast Studio
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-red-500/15 border border-red-500/40 text-red-400 text-[11px] font-mono font-bold">
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
-                LIVE
-                <span className="text-white flex items-center gap-1">
-                  <Users className="w-3 h-3 text-red-400" /> {viewerCount}
-                </span>
-              </div>
+                JOIN GROUP CLASSES <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
 
-          {/* Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12">
-            {/* Stream View */}
-            <div className="lg:col-span-8 bg-black relative flex flex-col justify-between p-3 sm:p-4 min-h-[260px] sm:min-h-[340px]">
-              <div className="absolute inset-0 overflow-hidden">
-                <img 
-                  src="/assets/mentor.jpg" 
-                  alt="Live mentor stream" 
-                  className="w-full h-full object-cover object-[center_25%] filter brightness-90 contrast-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/50 pointer-events-none" />
-              </div>
+          {/* TRACK 02: PERSONAL MENTORSHIP */}
+          <div className="rounded-3xl bg-gradient-to-b from-[#0c1812] to-[#09100d] border-2 border-brand-green/50 hover:border-brand-green transition-all p-6 sm:p-8 flex flex-col justify-between shadow-[0_0_30px_rgba(0,230,118,0.15)] relative">
+            
+            {/* Top Featured Pill */}
+            <div className="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-brand-green text-black font-mono font-black text-[10px] uppercase tracking-wider shadow-[0_0_15px_rgba(0,230,118,0.5)]">
+              LIMITED 1-ON-1 SLOTS
+            </div>
 
-              {/* Top overlay */}
-              <div className="relative z-10 flex items-start justify-between">
-                <div className="bg-black/80 backdrop-blur-md px-2.5 py-1.5 rounded-lg border border-brand-border/60">
-                  <div className="text-xs font-bold text-white flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-brand-green"></span>
-                    BankNifty Delta Absorption
-                  </div>
-                  <div className="text-[10px] font-mono text-brand-green">
-                    51,980.40 • Imbalance 3.4:1
-                  </div>
-                </div>
-
-                <span className="bg-black/70 px-2 py-1 rounded text-[10px] font-mono text-gray-300 border border-white/10 flex items-center gap-1">
-                  <Volume2 className="w-3 h-3 text-brand-green" /> 100%
+            <div>
+              {/* Badge & Number */}
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-mono font-black text-brand-green uppercase tracking-widest px-3 py-1 rounded-full bg-brand-green/20 border border-brand-green/40">
+                  TRACK 02
+                </span>
+                <span className="text-xs font-mono text-brand-green font-semibold">
+                  Personal 1-on-1
                 </span>
               </div>
 
-              {/* Bottom controls */}
-              <div className="relative z-10 mt-auto pt-3">
-                {notesActive && (
-                  <div className="mb-2 p-2 rounded-xl bg-black/90 border border-brand-green/40 backdrop-blur-md">
-                    <div className="flex items-center justify-between text-[11px] font-bold text-brand-green mb-1">
-                      <span>Class Notes</span>
-                      <button onClick={() => setNotesActive(false)} className="text-gray-400">✕</button>
+              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-1">
+                02 — PERSONAL MENTORSHIP
+              </h3>
+              
+              <div className="text-xs sm:text-sm font-mono font-bold text-brand-green uppercase tracking-wider mb-4">
+                1-ON-1 • PERSONALIZED • DIRECT
+              </div>
+
+              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-6">
+                A personalized mentorship experience focused entirely on your trading, your mistakes and your execution.
+              </p>
+
+              {/* Includes List */}
+              <div className="pt-4 border-t border-brand-border/60 mb-6">
+                <div className="text-xs font-mono font-bold text-white uppercase tracking-wider mb-3">
+                  Includes:
+                </div>
+                <div className="space-y-2.5">
+                  {mentorshipIncludes.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5">
+                      <div className="w-4 h-4 rounded-full bg-brand-green/15 border border-brand-green flex items-center justify-center shrink-0 mt-0.5">
+                        <Check className="w-2.5 h-2.5 text-brand-green stroke-[3]" />
+                      </div>
+                      <span className="text-xs sm:text-sm text-gray-200">{item}</span>
                     </div>
-                    <textarea 
-                      value={noteContent}
-                      onChange={(e) => setNoteContent(e.target.value)}
-                      className="w-full bg-[#0d1410] text-xs text-gray-200 p-2 rounded border border-brand-border h-14 resize-none"
-                    />
-                  </div>
-                )}
-
-                <div className="flex items-center justify-between gap-1.5 p-1.5 rounded-xl bg-[#090f0c]/90 border border-brand-border backdrop-blur-md">
-                  <div className="flex items-center gap-1.5">
-                    <button 
-                      onClick={() => {
-                        const q = prompt("Type your question:");
-                        if (q) {
-                          setMessages(prev => [...prev, { id: Date.now(), user: 'You', role: 'Attendee', text: `❓ ${q}`, time: 'Now', isSelf: true }]);
-                        }
-                      }}
-                      className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-brand-green/15 text-brand-green text-xs font-semibold"
-                    >
-                      <HelpCircle className="w-3.5 h-3.5" />
-                      Ask
-                    </button>
-
-                    <button 
-                      onClick={() => setHandRaised(!handRaised)}
-                      className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold border ${
-                        handRaised ? 'bg-yellow-500 text-black border-yellow-400' : 'bg-white/5 text-gray-200 border-white/10'
-                      }`}
-                    >
-                      <Hand className="w-3.5 h-3.5" />
-                      {handRaised ? 'Raised!' : 'Raise Hand'}
-                    </button>
-
-                    <button 
-                      onClick={() => setNotesActive(!notesActive)}
-                      className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white/5 text-gray-200 border border-white/10 text-xs"
-                    >
-                      <FileText className="w-3.5 h-3.5 text-gray-400" />
-                      Notes
-                    </button>
-                  </div>
-
-                  <button 
-                    onClick={() => alert("Presentation mode enabled")}
-                    className="p-1.5 text-gray-400 hover:text-white"
-                  >
-                    <Maximize2 className="w-3.5 h-3.5" />
-                  </button>
+                  ))}
                 </div>
               </div>
+
+              {/* Best For Box */}
+              <div className="p-3.5 rounded-xl bg-[#0e1d15] border border-brand-green/30 text-xs text-gray-300 leading-relaxed mb-6">
+                <strong className="text-brand-green font-mono uppercase block text-[11px] mb-1">BEST FOR:</strong>
+                Traders who want direct personal guidance and a customized path to improve their execution.
+              </div>
             </div>
 
-            {/* Chat Box: Max 240px height on mobile so it doesn't cause huge void! */}
-            <div className="lg:col-span-4 bg-[#080d0a] border-t lg:border-t-0 lg:border-l border-brand-border flex flex-col h-60 lg:h-[380px]">
-              <div className="p-2.5 border-b border-brand-border/70 flex items-center justify-between text-xs font-bold text-white">
-                <span className="flex items-center gap-1.5">Live Chat <span className="w-1.5 h-1.5 rounded-full bg-brand-green"></span></span>
-                <span className="text-[10px] font-mono text-gray-400 font-normal">Slow mode 3s</span>
-              </div>
-
-              <div ref={chatContainerRef} className="flex-1 p-2.5 overflow-y-auto space-y-2 font-sans text-xs">
-                {messages.map((msg) => (
-                  <div key={msg.id} className={`p-2 rounded-lg border ${msg.isSelf ? 'bg-brand-green/10 border-brand-green/30 text-white' : 'bg-[#0d1410] border-brand-border/60 text-gray-200'}`}>
-                    <div className="flex items-center justify-between mb-0.5">
-                      <span className="font-bold text-white text-[11px]">{msg.user}</span>
-                      <span className="text-[9px] font-mono text-gray-500">{msg.time}</span>
-                    </div>
-                    <div className="text-gray-200 text-xs break-words">{msg.text}</div>
-                  </div>
-                ))}
-              </div>
-
-              <form onSubmit={handleSendMessage} className="p-2 border-t border-brand-border bg-[#060a08] flex items-center gap-1.5">
-                <input
-                  type="text"
-                  value={inputMsg}
-                  onChange={(e) => setInputMsg(e.target.value)}
-                  placeholder="Type question..."
-                  className="flex-1 bg-[#0c130f] text-xs text-white px-2.5 py-1.5 rounded-lg border border-brand-border focus:outline-none focus:border-brand-green"
-                />
-                <button type="submit" className="p-1.5 rounded-lg bg-brand-green text-black">
-                  <Send className="w-3.5 h-3.5" />
-                </button>
-              </form>
+            {/* Action Button */}
+            <div>
+              <button
+                onClick={onEnroll}
+                className="w-full py-3.5 rounded-xl bg-brand-green hover:bg-brand-neon text-black font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_25px_rgba(0,230,118,0.5)] transition-all"
+              >
+                APPLY FOR PERSONAL MENTORSHIP <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
+
         </div>
 
-        {/* UPCOMING LIVE CLASSES: Horizontal swipeable slider on mobile! */}
+        {/* BOOK YOUR SLOT FOR UPCOMING LIVE CLASSES */}
         <div>
-          <div className="flex items-center justify-between mb-3">
-            <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-              Upcoming Live Classes
-            </h3>
-            <div className="block sm:hidden text-[10px] font-mono text-brand-green">
-              Swipe classes →
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                Book your slot for upcoming live classes
+              </h3>
+              <p className="text-xs text-gray-400 mt-0.5">
+                Reserve your seat for upcoming live market analysis sessions.
+              </p>
             </div>
           </div>
 
-          <div className="flex sm:grid sm:grid-cols-3 gap-3 overflow-x-auto sm:overflow-visible no-scrollbar snap-x snap-mandatory pb-2">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
             {upcomingClasses.map((item, idx) => (
               <div
                 key={idx}
-                className={`min-w-[78vw] sm:min-w-0 snap-center p-4 rounded-2xl border ${
-                  item.isNext ? 'bg-[#0b130f] border-brand-green/40 shadow-sm' : 'bg-[#080d0a] border-brand-border'
-                } shrink-0`}
+                className={`p-5 rounded-2xl border ${
+                  item.isNext 
+                    ? 'bg-[#0b1410] border-brand-green/40 shadow-sm' 
+                    : 'bg-[#080d0a] border-brand-border hover:border-brand-green/30'
+                } flex flex-col justify-between transition-all`}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-mono font-bold uppercase text-brand-green flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5" /> {item.date}
-                  </span>
-                  {item.isNext && (
-                    <span className="px-2 py-0.5 rounded-full bg-brand-green/15 text-brand-green text-[9px] font-bold uppercase">
-                      Next Up
+                <div>
+                  <div className="flex items-center justify-between mb-2.5">
+                    <span className="text-xs font-mono font-bold uppercase text-brand-green flex items-center gap-1.5">
+                      <Calendar className="w-3.5 h-3.5" /> {item.date}
                     </span>
-                  )}
+                    {item.isNext && (
+                      <span className="px-2 py-0.5 rounded-full bg-brand-green/15 text-brand-green text-[9px] font-bold uppercase font-mono">
+                        Upcoming
+                      </span>
+                    )}
+                  </div>
+
+                  <h4 className="text-sm sm:text-base font-bold text-white mb-1">
+                    {item.title}
+                  </h4>
+                  <p className="text-xs text-gray-400 mb-4">
+                    {item.topic}
+                  </p>
                 </div>
 
-                <h4 className="text-sm sm:text-base font-bold text-white mb-1">
-                  {item.title}
-                </h4>
-                <p className="text-xs text-gray-400 mb-3">
-                  {item.topic}
-                </p>
-
-                {item.isNext ? (
-                  <button
-                    onClick={onEnroll}
-                    className="w-full py-2 rounded-xl bg-brand-green text-black font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1"
-                  >
-                    Join Now <ArrowRight className="w-3 h-3" />
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => alert(`Reminder set for: ${item.title}`)}
-                    className="w-full py-2 rounded-xl bg-white/5 text-gray-200 text-xs border border-brand-border flex items-center justify-center gap-1"
-                  >
-                    <Bell className="w-3 h-3 text-gray-400" /> Set Reminder
-                  </button>
-                )}
+                <button
+                  onClick={onEnroll}
+                  className={`w-full py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all ${
+                    item.isNext
+                      ? 'bg-brand-green hover:bg-brand-neon text-black shadow-[0_0_15px_rgba(0,230,118,0.35)]'
+                      : 'bg-white/5 hover:bg-brand-green hover:text-black text-gray-200 border border-brand-border hover:border-brand-green'
+                  }`}
+                >
+                  Book Your Slot <ArrowRight className="w-3.5 h-3.5" />
+                </button>
               </div>
             ))}
           </div>

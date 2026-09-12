@@ -62,10 +62,10 @@ export default function EnrollmentModal({ isOpen, onClose }) {
               {/* Header */}
               <div className="mb-5">
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-green/15 text-brand-green text-[10px] sm:text-xs font-mono font-bold mb-2 border border-brand-green/30">
-                  <Sparkles className="w-3 h-3" /> MASTERCLASS ENROLLMENT
+                  <Sparkles className="w-3 h-3" /> BOOK YOUR SLOT
                 </div>
                 <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-                  Join Orderflow Mentorship
+                  Book Your Slot — Orderflow Trading
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-300 mt-1">
                   Fill in your details below to reserve your live seat.
@@ -178,7 +178,7 @@ export default function EnrollmentModal({ isOpen, onClose }) {
                   type="submit"
                   className="w-full mt-2 py-3 rounded-xl bg-brand-green hover:bg-brand-neon text-black font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,230,118,0.5)] transition-all"
                 >
-                  Submit Enrollment Form <ArrowRight className="w-4 h-4" />
+                  Book Your Slot Now <ArrowRight className="w-4 h-4" />
                 </button>
 
                 <p className="text-center text-[10px] text-gray-400 font-mono flex items-center justify-center gap-1">

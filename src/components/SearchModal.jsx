@@ -13,7 +13,7 @@ export default function SearchModal({ isOpen, onClose }) {
     { title: 'Market Profile POC, VAH and VAL Rules', category: 'Curriculum', link: '#curriculum' },
     { title: 'Live BankNifty & Nifty Market Execution Sessions', category: 'Live Classes', link: '#live' },
     { title: 'Auction Theory: How Buyers and Sellers Interact', category: 'Core Theory', link: '#home' },
-    { title: 'Orderflow Masterclass Full Program & Discount (₹14,999)', category: 'Pricing', link: '#pricing' },
+    { title: 'Orderflow Masterclass Full Program (Book Your Slot)', category: 'Enrollment', link: '#pricing' },
   ];
 
   const filtered = query.trim() 

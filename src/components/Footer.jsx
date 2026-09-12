@@ -35,7 +35,7 @@ export default function Footer({ onOpenCheckout }) {
 
             <div className="flex items-center gap-3 pt-2">
               <span className="px-3.5 py-1.5 rounded-full bg-brand-green/10 border border-brand-green/30 text-brand-green text-xs font-mono font-bold">
-                10K+ TRADERS TRAINED
+                450+ TRADERS TRAINED
               </span>
               <span className="px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-mono">
                 RATING 4.9 / 5.0 ★
@@ -51,10 +51,10 @@ export default function Footer({ onOpenCheckout }) {
             <ul className="space-y-2.5 text-sm">
               <li><a href="#home" className="hover:text-brand-green transition-colors">Home & Overview</a></li>
               <li><a href="#course" className="hover:text-brand-green transition-colors">Course Program Details</a></li>
-              <li><a href="#curriculum" className="hover:text-brand-green transition-colors">Curriculum Modules (01 - 08)</a></li>
-              <li><a href="#live" className="hover:text-brand-green transition-colors">Live Trading Classes</a></li>
+              <li><a href="#curriculum" className="hover:text-brand-green transition-colors">Complete Order Flow Course</a></li>
+              <li><a href="#live" className="hover:text-brand-green transition-colors">Choose Your Experience</a></li>
               <li><a href="#reviews" className="hover:text-brand-green transition-colors">Student Testimonials</a></li>
-              <li><a href="#pricing" className="hover:text-brand-green transition-colors">Pricing & Enrollment</a></li>
+              <li><a href="#pricing" className="hover:text-brand-green transition-colors">Book Your Slot</a></li>
             </ul>
           </div>
 

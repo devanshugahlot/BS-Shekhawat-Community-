@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
-export default function Navbar({ onOpenCheckout, onOpenSearch }) {
+export default function Navbar({ onOpenCheckout }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -37,7 +37,7 @@ export default function Navbar({ onOpenCheckout, onOpenSearch }) {
     { name: 'Live Classes', href: '#live', id: 'live' },
     { name: 'Curriculum', href: '#curriculum', id: 'curriculum' },
     { name: 'Reviews', href: '#reviews', id: 'reviews' },
-    { name: 'Pricing', href: '#pricing', id: 'pricing' },
+    { name: 'Book Slot', href: '#pricing', id: 'pricing' },
   ];
 
   return (
@@ -87,14 +87,6 @@ export default function Navbar({ onOpenCheckout, onOpenSearch }) {
 
         {/* Action Buttons */}
         <div className="hidden md:flex items-center gap-3">
-          <button
-            onClick={onOpenSearch}
-            className="p-2.5 text-gray-300 hover:text-brand-green hover:bg-white/5 rounded-full transition-colors"
-            title="Search"
-          >
-            <Search className="w-5 h-5" />
-          </button>
-          
           <button 
             onClick={onOpenCheckout}
             className="text-sm font-bold text-gray-200 hover:text-white px-3 py-2 transition-colors"
@@ -115,12 +107,6 @@ export default function Navbar({ onOpenCheckout, onOpenSearch }) {
 
         {/* Mobile menu button */}
         <div className="flex md:hidden items-center gap-2">
-          <button
-            onClick={onOpenSearch}
-            className="p-2.5 text-gray-200 hover:text-brand-green rounded-lg"
-          >
-            <Search className="w-5 h-5" />
-          </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2.5 text-gray-200 hover:text-white rounded-lg focus:outline-none"

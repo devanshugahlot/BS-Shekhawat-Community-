@@ -10,8 +10,8 @@ export default function MobileFloatingBar({ onEnroll }) {
             <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-ping"></span>
             NEXT LIVE BATCH
           </div>
-          <div className="text-xs font-black text-white font-mono">
-            ₹ 14,999 <span className="text-[10px] text-gray-400 line-through">₹24,999</span>
+          <div className="text-xs font-black text-white font-mono uppercase tracking-wider">
+            Reservations Open
           </div>
         </div>
 
@@ -19,7 +19,7 @@ export default function MobileFloatingBar({ onEnroll }) {
           onClick={onEnroll}
           className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-brand-green active:bg-brand-neon text-black font-extrabold text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(0,230,118,0.4)]"
         >
-          Enroll Now <ArrowRight className="w-3.5 h-3.5" />
+          Book Your Slot <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
     </div>
