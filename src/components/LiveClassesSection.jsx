@@ -3,7 +3,7 @@ import {
   Users, 
   UserCheck, 
   Check, 
-  Calendar, 
+  Clock, 
   ArrowRight,
   Sparkles
 } from 'lucide-react';
@@ -36,19 +36,19 @@ export default function LiveClassesSection({ onEnroll }) {
     {
       title: 'Orderflow Live Session',
       topic: 'Market Structure & Liquidity',
-      date: '12 Sep 2026 • 09:30 AM',
+      timing: '09:30 AM • Live Market',
       isNext: true,
     },
     {
       title: 'Footprint Deep Dive',
       topic: 'Imbalance & Absorption',
-      date: '14 Sep 2026 • 09:30 AM',
+      timing: '09:30 AM • Live Market',
       isNext: false,
     },
     {
       title: 'Q&A Session',
       topic: 'Doubt Clearing Live',
-      date: '16 Sep 2026 • 09:30 AM',
+      timing: '08:00 PM • Live Q&A',
       isNext: false,
     },
   ];
@@ -234,7 +234,7 @@ export default function LiveClassesSection({ onEnroll }) {
                 <div>
                   <div className="flex items-center justify-between mb-2.5">
                     <span className="text-xs font-mono font-bold uppercase text-brand-green flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5" /> {item.date}
+                      <Clock className="w-3.5 h-3.5" /> {item.timing}
                     </span>
                     {item.isNext && (
                       <span className="px-2 py-0.5 rounded-full bg-brand-green/15 text-brand-green text-[9px] font-bold uppercase font-mono">

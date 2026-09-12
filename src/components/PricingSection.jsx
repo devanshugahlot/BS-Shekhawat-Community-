@@ -5,7 +5,6 @@ import {
   Users, 
   Zap, 
   Headphones, 
-  Calendar,
   CheckCircle2
 } from 'lucide-react';
 
@@ -91,8 +90,8 @@ export default function PricingSection({ onEnroll }) {
                     </span>
                   </div>
                   <div className="text-[11px] text-gray-400 mt-2 font-mono flex items-center justify-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-brand-green" />
-                    <span>Next Live Batch Starting This Weekend • Limited Seats</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" />
+                    <span>Live Batch Enrollment Open • Limited Seats</span>
                   </div>
                 </div>
 

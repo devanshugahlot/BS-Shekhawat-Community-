@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, ArrowRight, CheckCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, ArrowRight, CheckCircle } from 'lucide-react';
 
 export default function ReviewsSection({ onEnroll }) {
   const stats = [
@@ -21,7 +21,7 @@ export default function ReviewsSection({ onEnroll }) {
       name: 'Neha K.',
       role: 'Swing Trader',
       initials: 'NK',
-      review: 'Concepts bohot practical hain. Real market examples se samajhna easy ho jata hai. Best investment!',
+      review: 'Concepts bohot practical hain. Real market examples se samajhna easy ho jata hai.',
       rating: 5,
     },
     {
@@ -35,21 +35,21 @@ export default function ReviewsSection({ onEnroll }) {
       name: 'Vikram J.',
       role: 'Intraday Trader',
       initials: 'VJ',
-      review: 'Doubts ka response bahut fast milta hai. Community bhi kaafi supportive hai.',
+      review: 'Doubts ka response bahut fast milta hai. Community bhi kaafi supportive aur active hai.',
       rating: 5,
     },
     {
       name: 'Pooja M.',
       role: 'Part Time Trader',
       initials: 'PM',
-      review: 'Footprint aur volume concepts ab clearly samajh aate hain. Live sessions bahut helpful hain.',
+      review: 'Footprint aur volume concepts ab clearly samajh aate hain. Live sessions best hain.',
       rating: 5,
     },
     {
       name: 'Karan T.',
       role: 'Positional Trader',
       initials: 'KT',
-      review: 'Yeh course sirf strategy nahi, market ko samajhne ka mindset deta hai. Highly recommended!',
+      review: 'Yeh course sirf strategy nahi, market mindset deta hai. Highly recommended!',
       rating: 5,
     },
   ];
@@ -95,27 +95,27 @@ export default function ReviewsSection({ onEnroll }) {
         </div>
 
         {/* 6 Testimonial Cards: Desktop 3-col Grid / Mobile Horizontal Swipe Slider */}
-        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 overflow-x-auto sm:overflow-visible no-scrollbar snap-x snap-mandatory pb-2 mb-10">
+        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 overflow-x-auto sm:overflow-visible no-scrollbar snap-x snap-mandatory pb-2 mb-8 sm:mb-10">
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className="min-w-[82vw] sm:min-w-0 snap-center p-5 rounded-2xl bg-[#0a110e] border border-brand-border/80 hover:border-brand-green/40 transition-all flex flex-col justify-between shrink-0 shadow-sm"
+              className="w-[74vw] max-w-[285px] sm:w-auto sm:max-w-none snap-center p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-[#0a110e] border border-brand-border/80 hover:border-brand-green/40 transition-all flex flex-col justify-between shrink-0 shadow-sm"
             >
               <div>
-                <div className="flex items-center gap-1 text-amber-400 mb-3">
+                <div className="flex items-center gap-1 text-amber-400 mb-2 sm:mb-3">
                   {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current text-amber-400" />
+                    <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current text-amber-400" />
                   ))}
                 </div>
 
-                <p className="text-xs sm:text-sm text-gray-200 leading-relaxed italic mb-5">
+                <p className="text-xs sm:text-sm text-gray-200 leading-snug italic line-clamp-2 mb-3 sm:mb-4 min-h-[2.5rem] sm:min-h-[2.75rem]">
                   "{t.review}"
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-brand-border/60 flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-brand-green/15 border border-brand-green/40 flex items-center justify-center font-mono font-bold text-xs text-brand-green">
+              <div className="pt-2.5 sm:pt-3 border-t border-brand-border/60 flex items-center justify-between">
+                <div className="flex items-center gap-2 sm:gap-2.5">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-brand-green/15 border border-brand-green/40 flex items-center justify-center font-mono font-bold text-[11px] sm:text-xs text-brand-green">
                     {t.initials}
                   </div>
                   <div>
@@ -129,7 +129,7 @@ export default function ReviewsSection({ onEnroll }) {
                   </div>
                 </div>
 
-                <span className="text-[10px] font-mono text-gray-500">
+                <span className="text-[9px] sm:text-[10px] font-mono text-gray-500">
                   Verified Trader
                 </span>
               </div>
